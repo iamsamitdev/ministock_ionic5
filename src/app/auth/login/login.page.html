@@ -1,0 +1,31 @@
+<ion-content color="primary">
+
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100vh;">
+      <ion-card class="ion-padding" style="width: 80%">
+        <div class="ion-text-center ion-margin-top">
+          <img src="assets/images/logo.png" style="width: 100px;">
+        </div>
+        <form>
+          <ion-item lines="full">
+            <ion-label position="floating">อีเมล์ <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required type="text" name="email" [(ngModel)]="userData.email"></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+            <ion-label position="floating">รหัสผ่าน <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required  type="password" name="password" [(ngModel)]="userData.password"></ion-input>
+          </ion-item>
+          <!-- {{ userData | json }} -->
+          <div class="ion-margin-start ion-margin-top"><a [routerLink]="['/forgotpassword']">ลืมรหัสผ่าน ?</a></div>
+
+          <ion-row>
+            <ion-col>
+              <ion-button block color="primary" type="submit" expand="block" (click)="submitLogin()">เข้าสู่ระบบ</ion-button>
+              <div class="ion-text-center ion-margin-vertical">ยังไม่เป็นสมาชิก <a [routerLink]="['/register']">ลงทะเบียนที่นี่</a></div>
+            </ion-col>
+          </ion-row>
+
+        </form>
+      </ion-card>
+    </ion-row>
+  
+</ion-content>

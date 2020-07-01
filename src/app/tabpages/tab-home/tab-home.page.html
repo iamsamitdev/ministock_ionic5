@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>MiniStock</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segnav">
+      <ion-segment-button value="instocks">
+        <ion-label>IN STOCK</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="orders">
+        <ion-label>ORDERS</ion-label>
+      </ion-segment-button>.
+      <ion-segment-button value="invoices">
+        <ion-label>INVOICES</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div [ngSwitch]="segnav">
+    <div *ngSwitchCase="'instocks'">
+
+      <ion-slides mode="md" pager="md" scrollbar="md" [options]="slideOption" autoplay=3000 loop>
+        <ion-slide>
+          <img src="assets/images/slide1.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img src="assets/images/slide2.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img src="assets/images/slide3.jpg">
+        </ion-slide>
+      </ion-slides>
+
+      <div class="ion-padding">
+        <h1>Mini Stock</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illo laboriosam non perspiciatis cum, excepturi at explicabo quaerat doloremque dolor eius dolorum quidem quo quasi neque repellat, ipsum recusandae assumenda?</p>
+      </div>
+
+    </div>
+
+    <div class="ion-padding" *ngSwitchCase="'orders'">
+      <h1>Orders content...</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quibusdam eveniet ab culpa reiciendis ex, aliquam, ipsam porro nemo suscipit minima reprehenderit animi maiores sapiente natus hic aperiam dolorum sequi.</p>
+    </div>
+
+    <div class="ion-padding" *ngSwitchCase="'invoices'">
+      <h1>Invoices content...</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quibusdam eveniet ab culpa reiciendis ex, aliquam, ipsam porro nemo suscipit minima reprehenderit animi maiores sapiente natus hic aperiam dolorum sequi.</p>
+    </div>
+  </div>
+
+</ion-content>
