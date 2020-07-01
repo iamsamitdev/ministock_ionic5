@@ -1,0 +1,7 @@
+{
+  "name": "ministock",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
