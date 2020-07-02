@@ -7,8 +7,8 @@
         </div>
         <form>
           <ion-item lines="full">
-            <ion-label position="floating">อีเมล์ <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input required type="text" name="email" [(ngModel)]="userData.email"></ion-input>
+            <ion-label position="floating">ชื่อผู้ใช้ <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required type="text" name="text" [(ngModel)]="userData.username"></ion-input>
           </ion-item>
           <ion-item lines="full">
             <ion-label position="floating">รหัสผ่าน <ion-text color="danger">*</ion-text></ion-label>
@@ -23,6 +23,33 @@
               <div class="ion-text-center ion-margin-vertical">ยังไม่เป็นสมาชิก <a [routerLink]="['/register']">ลงทะเบียนที่นี่</a></div>
             </ion-col>
           </ion-row>
+
+          <div class="ion-text-center ion-margin-top ion-margin-bottom">
+            <ion-text color="dark">
+              หรือเข้าระบบด้วย:
+            </ion-text>
+          </div>
+          
+    
+          <ion-grid class="btn-group">
+            <ion-row>
+              <ion-col size="4">
+                <ion-button shape="round" expand="full" color="secondary">
+                  <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col size="4">
+                <ion-button shape="round" expand="full" color="secondary">
+                  <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col size="4">
+                <ion-button shape="round" expand="full" color="secondary">
+                  <ion-icon  slot="icon-only" name="logo-google"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
         </form>
       </ion-card>
