@@ -7,8 +7,8 @@
       <ion-segment-button value="instocks">
         <ion-label>IN STOCK</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="orders">
-        <ion-label>ORDERS</ion-label>
+      <ion-segment-button value="products">
+        <ion-label>PRODUCTS</ion-label>
       </ion-segment-button>.
       <ion-segment-button value="invoices">
         <ion-label>INVOICES</ion-label>
@@ -35,15 +35,73 @@
       </ion-slides>
 
       <div class="ion-padding">
-        <h1>Mini Stock</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus illo laboriosam non perspiciatis cum, excepturi at explicabo quaerat doloremque dolor eius dolorum quidem quo quasi neque repellat, ipsum recusandae assumenda?</p>
+        <!--Menu-->
+        <ion-grid>
+          <ion-row>
+            <ion-col class="box-cq">
+              <ion-icon name="logo-apple-appstore"></ion-icon>
+              Store
+            </ion-col>
+            <ion-col class="box-cq">
+              <ion-icon name="compass"></ion-icon>
+              Compass
+            </ion-col>
+            <ion-col class="box-cq">
+              <ion-icon name="sunny"></ion-icon>
+              Weather
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="box-cq">
+              <ion-icon name="map"></ion-icon>
+              Maps
+            </ion-col>
+            <ion-col class="box-cq">
+              <ion-icon name="cube"></ion-icon>
+              Cube
+            </ion-col>
+            <ion-col class="box-cq">
+              <ion-icon name="pie-chart"></ion-icon>
+              Chart
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="box-cq">
+              <ion-icon name="camera"></ion-icon>
+              Camera
+            </ion-col>
+            <ion-col class="box-cq">
+              <ion-icon name="qr-code"></ion-icon>
+              QRCode
+            </ion-col>
+            <ion-col class="box-cq">
+              <ion-icon name="notifications"></ion-icon>
+              Notification
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </div>
 
     </div>
 
-    <div class="ion-padding" *ngSwitchCase="'orders'">
-      <h1>Orders content...</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quibusdam eveniet ab culpa reiciendis ex, aliquam, ipsam porro nemo suscipit minima reprehenderit animi maiores sapiente natus hic aperiam dolorum sequi.</p>
+    <div class="ion-padding" *ngSwitchCase="'products'">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <ion-list>
+
+        <ion-item *ngFor="let product of productData" (click)="showProductDetail(product.id)">
+          <ion-avatar slot="start">
+            <img src="http://localhost/ministock_restapi/public/images/stock/{{product.product_image}}">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ product.product_name }}</h2>
+            <h3>{{ product.product_barcode }}</h3>
+            <p>{{ product.product_detail }}</p>
+          </ion-label>
+        </ion-item>
+       
+      </ion-list>
     </div>
 
     <div class="ion-padding" *ngSwitchCase="'invoices'">

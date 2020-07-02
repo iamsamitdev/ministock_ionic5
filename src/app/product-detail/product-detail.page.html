@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tablinks/tab-home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ productData.product_name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+      <img src="http://localhost/ministock_restapi/public/images/stock/{{productData.product_image}}" alt="">
+      <ion-card-header>
+        <ion-card-title>{{ productData.product_name }}</ion-card-title>
+        <ion-card-subtitle>{{ productData.product_barcode }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>รายละเอียดสินค้า</p>
+        <p>{{ productData.product_detail }}</p>
+        <ul>
+          <li>ราคา {{ productData.product_price }}</li>
+          <li>หมวดหมู่ {{ productData.product_category }}</li>
+          <li>วันที่ {{ productData.product_date }}</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

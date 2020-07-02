@@ -33,7 +33,7 @@ export class RegisterPage implements OnInit {
   // สร้างกล่องแจ้งเตือน (AlertDialog)
   async presentAlert(msg){
     const alert = await this.alert.create({
-      header: 'Login Status',
+      header: 'แจ้งเตือน',
       message: msg,
       buttons: ['OK']
     });
