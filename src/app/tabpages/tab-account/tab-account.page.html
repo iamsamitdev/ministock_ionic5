@@ -1,9 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>tab-account</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>บัญชีของฉัน</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="ion-text-center">
+    <ion-avatar >
+      <img src="http://localhost:8080/ministock_restapi/public/images/profile/{{imgProfile}}" alt="">
+    </ion-avatar>
+    <h2>{{ fullname }} </h2>
+    <h3>{{ username }} </h3>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="Logout()" expand="block" color="danger">
+      ออกจากระบบ
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

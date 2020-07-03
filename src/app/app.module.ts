@@ -12,16 +12,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { WebapiService } from './services/webapi.service';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+import { Camera } from '@ionic-native/camera/ngx';
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [
+    QRScanner,
+    Camera,
+    Geolocation,
     WebapiService,
     StatusBar,
     SplashScreen,

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tablinks/tab-home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>QRCode Scan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <p>ข้อมูลที่ได้จากการ scan คือ</p>
+    <h2>{{ QRSCAN_DATA }}</h2>
+  </div>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onScan()" expand="block" color="success">
+      Scan QR Code
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

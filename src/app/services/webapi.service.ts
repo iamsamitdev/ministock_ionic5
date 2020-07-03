@@ -15,7 +15,7 @@ export class WebapiService {
   constructor(public http: HttpClient) { } 
 
   // API URL
-  baseURL = 'http://localhost/ministock_restapi/public/api/';
+  baseURL = 'http://localhost:8080/ministock_restapi/public/api/';
 
  // Http Options
  httpOptions = {

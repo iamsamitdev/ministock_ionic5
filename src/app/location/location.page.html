@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tablinks/tab-home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Location Map</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div #mapElement id="map" class="map" style="height: 100%;"></div>
+</ion-content>

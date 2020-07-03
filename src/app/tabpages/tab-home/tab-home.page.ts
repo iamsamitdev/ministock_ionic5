@@ -52,4 +52,25 @@ export class TabHomePage implements OnInit {
     }, 3000);
   }
 
+  // เรียกเปิดหน้าแสดงแผนที่
+  openMap(){
+    this.router.navigateByUrl('map');
+  }
+
+  // เรียกเปิดหน้าแสดงตำแหน่งบนแผนที่
+  openMapGeolocation(){
+    this.router.navigateByUrl('location');
+  }
+
+  // เรียกเปิดหน้ากล้อง camera
+  openCamera(){
+    this.router.navigateByUrl('camera');
+  }
+
+  // เรียกเปิดหน้าสำหรับ scan qr-code
+  openQRCode(){
+    this.router.navigateByUrl('qrcode');
+  }
+
+
 }

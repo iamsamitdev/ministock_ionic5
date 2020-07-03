@@ -52,13 +52,13 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col class="box-cq">
+            <ion-col class="box-cq" (click)="openMap()">
               <ion-icon name="map"></ion-icon>
-              Maps
+              Map
             </ion-col>
-            <ion-col class="box-cq">
-              <ion-icon name="cube"></ion-icon>
-              Cube
+            <ion-col class="box-cq" (click)="openMapGeolocation()">
+              <ion-icon name="location"></ion-icon>
+              Location
             </ion-col>
             <ion-col class="box-cq">
               <ion-icon name="pie-chart"></ion-icon>
@@ -66,11 +66,11 @@
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col class="box-cq">
+            <ion-col class="box-cq" (click)="openCamera()">
               <ion-icon name="camera"></ion-icon>
               Camera
             </ion-col>
-            <ion-col class="box-cq">
+            <ion-col class="box-cq" (click)="openQRCode()">
               <ion-icon name="qr-code"></ion-icon>
               QRCode
             </ion-col>
@@ -92,7 +92,7 @@
 
         <ion-item *ngFor="let product of productData" (click)="showProductDetail(product.id)">
           <ion-avatar slot="start">
-            <img src="http://localhost/ministock_restapi/public/images/stock/{{product.product_image}}">
+            <img src="http://localhost:8080/ministock_restapi/public/images/stock/{{product.product_image}}">
           </ion-avatar>
           <ion-label>
             <h2>{{ product.product_name }}</h2>

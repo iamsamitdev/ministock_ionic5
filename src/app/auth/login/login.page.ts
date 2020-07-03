@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 // เรียกใช้งาน Web API
 import { WebapiService } from '../../services/webapi.service';
@@ -24,7 +25,8 @@ export class LoginPage implements OnInit {
   constructor(
     public router: Router, 
     public alert: AlertController,
-    public api: WebapiService
+    public api: WebapiService,
+    public storage: Storage
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,11 @@ export class LoginPage implements OnInit {
      // ตรวจข้อมูลการ Login
      this.api.checkLogin(this.userData).subscribe(res => {
         if(res['status'] == 'success'){
+          // บันทึกข้อมูลลงตัวแปร storage
+          this.storage.set('LoginStatus', true);
+          this.storage.set('LoginFullname', res['fullname']);
+          this.storage.set('LoginUsername', this.userData.username);
+          this.storage.set('LoginPicprofile',res['img_profile']);
           // เข้าสู่ระบบถูกต้อง ส่งไปหน้า tab_home
           this.router.navigateByUrl('tabs/tablinks/tab-home');
         }else{
