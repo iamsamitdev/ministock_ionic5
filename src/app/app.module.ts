@@ -11,12 +11,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { WebapiService } from './services/webapi.service';
+import { ConstantService } from './services/constant.service';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { Camera } from '@ionic-native/camera/ngx';
-import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,10 +31,11 @@ import { QRScanner } from '@ionic-native/qr-scanner/ngx';
     HttpClientModule
   ],
   providers: [
-    QRScanner,
+    BarcodeScanner,
     Camera,
     Geolocation,
     WebapiService,
+    ConstantService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

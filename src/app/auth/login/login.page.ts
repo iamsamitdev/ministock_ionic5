@@ -23,10 +23,10 @@ export class LoginPage implements OnInit {
   }
 
   constructor(
-    public router: Router, 
-    public alert: AlertController,
-    public api: WebapiService,
-    public storage: Storage
+    private router: Router, 
+    private alert: AlertController,
+    private api: WebapiService,
+    private storage: Storage
   ) { }
 
   ngOnInit() {

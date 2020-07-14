@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+// import { ZBar, ZBarOptions  } from '@ionic-native/zbar/ngx';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-qrcode',
@@ -9,50 +10,50 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 export class QrcodePage implements OnInit {
 
   // สร้างตัวแปรมารับค่าจากการ scan
-  QRSCAN_DATA: string;
-  isOn = false;
+  // options: ZBarOptions = {
+  //   text_title: "", // Android only
+  //   text_instructions: "หันกล้องให้ตรงกับ qrcode", // Android only
+  //   camera: "back", // defaults to "back"
+  //   flash: 'off',
+  //   drawSight: true
+  // }
 
-  constructor(private qrScanner: QRScanner) { }
+  options: BarcodeScannerOptions = {
+    preferFrontCamera : false, // iOS and Android
+    showFlipCameraButton : true, // iOS and Android
+    showTorchButton : true, // iOS and Android
+    prompt : "Place a barcode inside the scan area", // Android
+    orientation : "portrait", // landscape
+    disableSuccessBeep: false // iOS and Android
+  }
+
+  scannedResult:any;
+
+  constructor(
+    private barcodeScanner: BarcodeScanner
+    // private zbar: ZBar
+    ) { }
 
   ngOnInit(){}
 
-  ScanQRCode(){
-    // alert("OK");
-    // Optionally request the permission early
-    this.qrScanner.prepare()
-    .then((status: QRScannerStatus) => {
-      if (status.authorized) {
-        // camera permission was granted
-        this.isOn = true;
+  scanCode(){
 
-        // start scanning
-        let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-          console.log('Scanned something', text);
-          this.isOn = false;
-          this.QRSCAN_DATA = text;
-          
-          if(this.QRSCAN_DATA !== ''){
-            this.closeScanner();
-            scanSub.unsubscribe();
-          }
-          
-        });
+  //   this.zbar.scan(this.options)
+  //  .then(result => {
+  //     console.log(result); // Scanned code
+  //     this.scannedResult = result;
+  //  })
+  //  .catch(error => {
+  //     alert(error); // Error message
+  //  });
 
-        this.qrScanner.show();
+    this.barcodeScanner.scan(this.options).then(barcodeData => {
+      //console.log('Barcode data', barcodeData);
+      this.scannedResult = barcodeData.text;
+    }).catch(err => {
+        console.log('Error', err);
+    });
 
-      } else if (status.denied) {
-        this.qrScanner.openSettings();
-      } else {
-       
-      }
-    })
-    .catch((e: any) => console.log('Error is', e));
-  }
-
-  closeScanner(){
-    this.isOn = false;
-    this.qrScanner.hide();
-    this.qrScanner.destroy();
   }
 
 }

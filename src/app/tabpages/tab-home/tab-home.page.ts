@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { WebapiService }  from '../../services/webapi.service';
-import { from } from 'rxjs';
+
+// ConstantService
+import { ConstantService } from '../../services/constant.service';
 
 @Component({
   selector: 'app-tab-home',
@@ -12,12 +14,15 @@ export class TabHomePage implements OnInit {
 
   //  สร้างตัวแปรไว้เก็บข้อมูลจาก API
   productData: any;
+  imgURL:any;
 
   constructor(
-    public api: WebapiService,
-    public router: Router
+    private constant: ConstantService,
+    private api: WebapiService,
+    private router: Router
   ) {
     this.productData = [];
+    this.imgURL = this.constant.baseImageURL+"stock/"
   }
 
   segnav = 'instocks';

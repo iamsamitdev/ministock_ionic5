@@ -92,7 +92,7 @@
 
         <ion-item *ngFor="let product of productData" (click)="showProductDetail(product.id)">
           <ion-avatar slot="start">
-            <img src="http://localhost:8080/ministock_restapi/public/images/stock/{{product.product_image}}">
+            <img src="{{imgURL}}{{product.product_image}}">
           </ion-avatar>
           <ion-label>
             <h2>{{ product.product_name }}</h2>

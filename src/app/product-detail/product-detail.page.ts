@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
+// ConstantService
+import { ConstantService } from '../services/constant.service';
 
 // เรียกใช้งาน Web API
 import { WebapiService }  from '../services/webapi.service';
@@ -13,6 +16,7 @@ export class ProductDetailPage implements OnInit {
 
     // รับค่า id จากหน้า product
     getid:any;
+    imgURL:any;
 
     // ตัวแปรไว้เก็บข้อมูลสินค้าจาก web api
     productData = {
@@ -27,11 +31,12 @@ export class ProductDetailPage implements OnInit {
     }
 
   constructor(
-    public router: Router,
-    public api: WebapiService,
-    public acRoute: ActivatedRoute
+    private constant: ConstantService,
+    private api: WebapiService,
+    private acRoute: ActivatedRoute
   ) { 
     this.getid = this.acRoute.snapshot.params['id'];
+    this.imgURL = this.constant.baseImageURL+"stock/"
   }
 
   ngOnInit() {

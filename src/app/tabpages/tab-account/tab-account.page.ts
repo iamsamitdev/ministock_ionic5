@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Router } from '@angular/router';
+
+// ConstantService
+import { ConstantService } from '../../services/constant.service';
+
 @Component({
   selector: 'app-tab-account',
   templateUrl: './tab-account.page.html',
@@ -13,10 +16,14 @@ export class TabAccountPage implements OnInit {
   fullname:any;
   username:any;
 
+  imgURL:any;
+
   constructor(
-    public storage: Storage,
-    public router: Router
+    private constant: ConstantService,
+    private storage: Storage,
   ) { 
+
+      this.imgURL = this.constant.baseImageURL+"profile/"
 
       this.storage.get('LoginPicprofile').then((res) => {
         this.imgProfile = res;
